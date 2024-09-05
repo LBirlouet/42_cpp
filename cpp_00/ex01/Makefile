@@ -1,6 +1,8 @@
-NAME 		= PhoneBook
-OBJS_DIR	 = objects
-SRCS 		= ????.cpp
+NAME 		= 	PhoneBook
+OBJS_DIR	= 	objects
+SRCS 		=	phonebook.cpp \
+				contact.cpp
+
 OBJS 		= $(addprefix $(OBJS_DIR)/, $(SRCS:%.cpp=%.o))
 FLAGS		 = -Wall -Werror -Wextra -std=c++98
 
