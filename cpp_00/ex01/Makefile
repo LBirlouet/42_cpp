@@ -4,7 +4,7 @@ SRCS 		=	phonebook.cpp \
 				contact.cpp
 
 OBJS 		= $(addprefix $(OBJS_DIR)/, $(SRCS:%.cpp=%.o))
-FLAGS		 = -Wall -Werror -Wextra -std=c++98
+FLAGS		 = -Wall -Werror -Wextra -std=c++98 #-Wpedantic
 
 GREEN		=	\033[1;92m
 RED			=	\033[1;91m

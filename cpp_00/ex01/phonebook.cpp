@@ -1,13 +1,10 @@
-#include "iostream"
-#include "string"
-#include "algorithm"
-#include "cctype"
 #include "phonebook.hpp"
+#include "contact.hpp"
 
 Phonebook::Phonebook(void)
 {
 	contact_nb = 0;
-	for(short i = 0; i < 8; i++)
+	for(short i(0); i < 8; i++)
 	{
 		contact[i].initFirstName("NONE");
 		contact[i].initLastName("NONE");
@@ -47,22 +44,39 @@ void	Phonebook::addContact()
 	system("clear");
 	std::cout<<"select your first name : ";
 	std::cin>>userInput;
+	if (std::cin.eof())
+		check_exit("EXIT");
 	contact[contact_nb].initFirstName(userInput);
 	/*last name*/
 	system("clear");
 	std::cout<<"select your last name : ";
 	std::cin>>userInput;
+	if (std::cin.eof())
+	{
+		check_exit("EXIT");
+		exit(0);
+	}
 	contact[contact_nb].initLastName(userInput);
 	/*ncikname name*/
 	system("clear");
 	std::cout<<"select your nickname : ";
 	std::cin>>userInput;
+	if (std::cin.eof())
+	{
+		check_exit("EXIT");
+		exit(0);
+	}
 	contact[contact_nb].initNickName(userInput);
 	/*phone number*/
 	get_imput:
 	system("clear");
 	std::cout<<"select your phone number : ";
 	std::cin>>userInput;
+	if (std::cin.eof())
+	{
+		check_exit("EXIT");
+		exit(0);
+	}
 	if (!is_digits_only(userInput))
 		goto get_imput;
 	contact[contact_nb].initPhoneNum(userInput);
@@ -70,6 +84,11 @@ void	Phonebook::addContact()
 	system("clear");
 	std::cout<<"select your secret : ";
 	std::cin>>userInput;
+	if (std::cin.eof())
+	{
+		check_exit("EXIT");
+		exit(0);
+	}
 	contact[contact_nb].initSecret(userInput);
 	system("clear");
 	std::cout<<"Contact created"<<std::endl;
@@ -80,8 +99,67 @@ void	Phonebook::addContact()
 	std::cout<<"Secret : "<<contact[contact_nb].recoverSecret()<<std::endl;
 	contact_nb++;
 }
-//!!!!! check le ctrl D
-//?? utiliser get line pour beneficier du split ? pcq pb si tu fais " tt tt"
+
+std::string	crop_name(std::string str)
+{
+	std::string spaces = "          ";
+	if(str.size() == 10)
+		return (str);
+	else if (str.size() < 10)
+		return (spaces.substr(0, (10 - str.size())) + str);
+	return (str.substr(0,9) + '.');
+}
+
+int	recoverIndex(const std::string userInput)
+{
+	int	index;
+
+	try{
+		index = std::stoi(userInput);
+		if (index > 7 || index < 0)
+			return (-1);
+		return (index);
+	}
+	catch (const std::invalid_argument& e){
+		return(-1);
+	} 
+	catch (const std::out_of_range& e) {
+		return (-1);
+	}
+}
+
+void	Phonebook::showAllContacts()
+{
+	system("clear");
+	std::string userInput;
+	// std::cout<<"  INDEX| FIRST NAME | LAST NAME | NICKNAME"<<std::endl;
+	std::cout<<"     INDEX|FIRST NAME| LAST NAME|  NICKNAME"<<std::endl;
+	std::cout<<std::endl;
+	for(int i = 0; i < 8; i++)
+	{
+		std::cout<<"         "<<i<<"|"<< crop_name(contact[i].recoverFirstName())<<"|"<<crop_name(contact[i].recoverLastName())<<"|"<<crop_name(contact[i].recoverNickName())<<std::endl;
+	}
+	get_imput:
+	std::cout<<"Choose an index : ";
+	std::cin>>userInput;
+	if (std::cin.eof())
+	{
+		check_exit("EXIT");
+		exit(0);
+	}
+	if (!check_exit(userInput))
+		exit(0);
+	std::cout<<std::endl;
+	int index = recoverIndex(userInput);
+	if (!is_digits_only(userInput) || index == -1)
+		goto get_imput;
+	std::cout<<"FIRST NAME : "<<contact[index].recoverFirstName()<<std::endl;
+	std::cout<<"LAST NAME : "<<contact[index].recoverLastName()<<std::endl;
+	std::cout<<"NICKNAME : "<<contact[index].recoverNickName()<<std::endl;
+	std::cout<<"PHONE NUMBER : "<<contact[index].recoverPhoneNum()<<std::endl;
+	std::cout<<"SECRET : "<<contact[index].recoverSecret()<<std::endl;
+}
+
 int main()
 {
 	std::string userInput ("NONE");
@@ -90,28 +168,19 @@ int main()
 	Phonebook Phonebook;
 
 	system("clear");
-		std::cout<<"Welcome in your PhoneBook"<<std::endl<<"Please choose an option"<<std::endl;
-	// std::cin>>userInput;
+	std::cout<<"Welcome in your PhoneBook"<<std::endl<<"Please choose an option"<<std::endl;
 	while(check_exit(userInput))
 	{
-		std::cout<<"ADD | SEARCH | EXIT"<<std::endl;
+		std::cout<<std::endl<<"ADD  |  SEARCH  |  EXIT"<<std::endl;
 		std::cin>>userInput;
+		if (std::cin.eof())
+		{
+			check_exit("EXIT");
+			exit(0);
+		}
 		if (add.compare(userInput) == 0)
 			Phonebook.addContact();
-		if (search.compare(userInput)==0)
-			
-		//if userInpu -> ADD
-		//	select_firstname
-		//	selec...
-		// contact created
-
-		//else if userInput-> SEARCH
-		//	afficher tous les contacts
-		//	demander de choisir un index
-		//	si index valid -> clear et afficher les infos
-		//	sinon reprint demander de choisir un index
-		//
-
-		// system("clear");
+		if (search.compare(userInput) == 0)
+			Phonebook.showAllContacts();
 	}
 }
