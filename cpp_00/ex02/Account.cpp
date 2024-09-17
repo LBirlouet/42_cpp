@@ -1,6 +1,7 @@
 #include "Account.hpp"
 #include "string"
 #include "iostream"
+#include "iomanip"
 
 int	Account::_nbAccounts(0);
 int	Account::_totalAmount(0); 
@@ -68,9 +69,9 @@ bool Account::makeWithdrawal(int withdrawal){
 
 void	Account::_displayTimestamp(void){
 	time_t now = time(0);
-	std::cout << "[" << now << "_";
 	tm *ltm = localtime(&now);
-	std::cout << 5+ltm->tm_hour << 30+ltm->tm_min << ltm->tm_sec << "] ";
+	std::cout << "[" << 1900 + ltm->tm_year << std::setfill('0') << std::setw(2) << 1 + ltm->tm_mon << std::setfill('0') << std::setw(2) << ltm->tm_mday << "_";
+	std::cout << std::setfill('0') << std::setw(2) << ltm->tm_hour << std::setfill('0') << std::setw(2) << ltm->tm_min << std::setfill('0') << std::setw(2) << ltm->tm_sec << "] ";
 }
 
 void	Account::displayAccountsInfos(void){
