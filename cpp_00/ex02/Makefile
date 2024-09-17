@@ -1,6 +1,8 @@
-NAME 		= 	PhoneBook
+NAME 		= 	Account
 OBJS_DIR	= 	objects
-SRCS 		=	
+
+SRCS 		=	tests.cpp \
+				Account.cpp
 
 OBJS 		= $(addprefix $(OBJS_DIR)/, $(SRCS:%.cpp=%.o))
 FLAGS		 = -Wall -Werror -Wextra -std=c++98 #-Wpedantic
@@ -13,7 +15,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@c++ $(FLAGS) $(OBJS) -o $(NAME)
-	@echo "\n${GREEN}PhoneBook is compiled${NC}"
+	@echo "\n${GREEN}Account is compiled${NC}"
 
 $(OBJS_DIR)/%.o: %.cpp
 	@mkdir -p $(OBJS_DIR)
@@ -21,7 +23,7 @@ $(OBJS_DIR)/%.o: %.cpp
 
 clean:
 	@rm -rf $(OBJS_DIR)
-	@echo "\n${RED}PhoneBook is cleaned${NC}"
+	@echo "\n${RED}Account is cleaned${NC}"
 
 fclean: clean
 	@rm -f $(NAME)
