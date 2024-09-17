@@ -14,14 +14,11 @@ Phonebook::Phonebook(void)
 	}
 }
 
-Phonebook::~Phonebook(void)
-{
+Phonebook::~Phonebook(void){
 	return ;
 }
 
-
-int	check_exit(std::string userInput)
-{
+int	check_exit(std::string userInput){
 	std::string str ("EXIT");
 
 	if (str.compare(userInput) != 0)
@@ -30,13 +27,15 @@ int	check_exit(std::string userInput)
 	return (0);
 }
 
-bool	is_digits_only(const std::string& str)
-{
-	return std::all_of(str.begin(), str.end(), ::isdigit);
+bool	is_digits_only(const std::string& str){
+	for (unsigned long i(0); i < str.size();i++){
+		if (!isdigit(str[i]))
+			return false;
+	}
+	return true;
 }
 
-void	Phonebook::addContact()
-{
+void	Phonebook::addContact(){
 	std::string userInput ("NONE");
 	if (contact_nb > 7)
 		contact_nb = 0;
@@ -51,8 +50,7 @@ void	Phonebook::addContact()
 	system("clear");
 	std::cout<<"select your last name : ";
 	std::cin>>userInput;
-	if (std::cin.eof())
-	{
+	if (std::cin.eof()){
 		check_exit("EXIT");
 		exit(0);
 	}
@@ -61,8 +59,7 @@ void	Phonebook::addContact()
 	system("clear");
 	std::cout<<"select your nickname : ";
 	std::cin>>userInput;
-	if (std::cin.eof())
-	{
+	if (std::cin.eof()){
 		check_exit("EXIT");
 		exit(0);
 	}
@@ -72,8 +69,7 @@ void	Phonebook::addContact()
 	system("clear");
 	std::cout<<"select your phone number : ";
 	std::cin>>userInput;
-	if (std::cin.eof())
-	{
+	if (std::cin.eof()){
 		check_exit("EXIT");
 		exit(0);
 	}
@@ -84,8 +80,7 @@ void	Phonebook::addContact()
 	system("clear");
 	std::cout<<"select your secret : ";
 	std::cin>>userInput;
-	if (std::cin.eof())
-	{
+	if (std::cin.eof()){
 		check_exit("EXIT");
 		exit(0);
 	}
@@ -100,8 +95,7 @@ void	Phonebook::addContact()
 	contact_nb++;
 }
 
-std::string	crop_name(std::string str)
-{
+std::string	crop_name(std::string str){
 	std::string spaces = "          ";
 	if(str.size() == 10)
 		return (str);
@@ -110,40 +104,27 @@ std::string	crop_name(std::string str)
 	return (str.substr(0,9) + '.');
 }
 
-int	recoverIndex(const std::string userInput)
-{
+int	recoverIndex(const std::string userInput){
 	int	index;
 
-	try{
-		index = std::stoi(userInput);
-		if (index > 7 || index < 0)
-			return (-1);
-		return (index);
-	}
-	catch (const std::invalid_argument& e){
-		return(-1);
-	} 
-	catch (const std::out_of_range& e) {
+	index = std::atoi(userInput.c_str());
+	if (index > 7 || index < 0)
 		return (-1);
-	}
+	return (index);
 }
 
-void	Phonebook::showAllContacts()
-{
+void	Phonebook::showAllContacts(){
 	system("clear");
 	std::string userInput;
-	// std::cout<<"  INDEX| FIRST NAME | LAST NAME | NICKNAME"<<std::endl;
 	std::cout<<"     INDEX|FIRST NAME| LAST NAME|  NICKNAME"<<std::endl;
 	std::cout<<std::endl;
-	for(int i = 0; i < 8; i++)
-	{
+	for(int i = 0; i < 8; i++){
 		std::cout<<"         "<<i<<"|"<< crop_name(contact[i].recoverFirstName())<<"|"<<crop_name(contact[i].recoverLastName())<<"|"<<crop_name(contact[i].recoverNickName())<<std::endl;
 	}
 	get_imput:
 	std::cout<<"Choose an index : ";
 	std::cin>>userInput;
-	if (std::cin.eof())
-	{
+	if (std::cin.eof()){
 		check_exit("EXIT");
 		exit(0);
 	}
@@ -169,12 +150,10 @@ int main()
 
 	system("clear");
 	std::cout<<"Welcome in your PhoneBook"<<std::endl<<"Please choose an option"<<std::endl;
-	while(check_exit(userInput))
-	{
+	while(check_exit(userInput)){
 		std::cout<<std::endl<<"ADD  |  SEARCH  |  EXIT"<<std::endl;
 		std::cin>>userInput;
-		if (std::cin.eof())
-		{
+		if (std::cin.eof()){
 			check_exit("EXIT");
 			exit(0);
 		}
