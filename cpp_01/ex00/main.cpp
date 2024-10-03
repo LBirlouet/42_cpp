@@ -1,7 +1,7 @@
 #include "Zombie.hpp"
 
 int	main(void){
-	Zombie Zombie;
-
-
+	Zombie *myZombie = newZombie("Heaper");
+	myZombie->announce();
+	randomChump("Stacker");
 }
