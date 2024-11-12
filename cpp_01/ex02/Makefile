@@ -1,4 +1,4 @@
-NAME 		= 	zombieHord
+NAME 		= 	HI_THIS_IS_BRAIN
 OBJS_DIR	= 	objects
 SRCS 		=	main.cpp 
 

@@ -1,10 +1,9 @@
-NAME 		= 	MoarBrainz!
+NAME 		= 	Sed_is_for_losers
 OBJS_DIR	= 	objects
-SRCS 		=	main.cpp \
-				ZombieHorde.cpp \
-				Zombie.cpp
+SRCS 		=	srcs/main.cpp \
 
-OBJS 		= $(addprefix $(OBJS_DIR)/, $(SRCS:%.cpp=%.o))
+OBJS = $(SRCS:srcs/%.cpp=$(OBJS_DIR)/%.o)
+
 FLAGS		 = -Wall -Werror -Wextra -std=c++98 #-Wpedantic
 
 GREEN		=	\033[1;92m
@@ -15,15 +14,15 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@c++ $(FLAGS) $(OBJS) -o $(NAME)
-	@echo "\n${GREEN}\"Moar brainz!\" is compiled${NC}"
+	@echo "\n${GREEN}\"Sed is for losers\" is compiled${NC}"
 
-$(OBJS_DIR)/%.o: %.cpp
+$(OBJS_DIR)/%.o: srcs/%.cpp
 	@mkdir -p $(OBJS_DIR)
 	@c++ $(FLAGS) -c $< -o $@
 
 clean:
 	@rm -rf $(OBJS_DIR)
-	@echo "\n${RED}\"Moar brainz!\" is cleaned${NC}"
+	@echo "\n${RED} \"Sed is for losers\" is cleaned${NC}"
 
 fclean: clean
 	@rm -f $(NAME)
