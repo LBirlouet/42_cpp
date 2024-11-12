@@ -1,8 +1,8 @@
 NAME 		= 	zombieHord
 OBJS_DIR	= 	objects
 SRCS 		=	main.cpp \
-				Zombie.cpp \
-				zombieHorde.cpp
+				ZombieHorde.cpp \
+				Zombie.cpp
 
 OBJS 		= $(addprefix $(OBJS_DIR)/, $(SRCS:%.cpp=%.o))
 FLAGS		 = -Wall -Werror -Wextra -std=c++98 #-Wpedantic
@@ -15,7 +15,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@c++ $(FLAGS) $(OBJS) -o $(NAME)
-	@echo "\n${GREEN}BraiiiiiiinnnzzzZ is compiled${NC}"
+	@echo "\n${GREEN}\"Moar brainz!\" is compiled${NC}"
 
 $(OBJS_DIR)/%.o: %.cpp
 	@mkdir -p $(OBJS_DIR)
@@ -23,7 +23,7 @@ $(OBJS_DIR)/%.o: %.cpp
 
 clean:
 	@rm -rf $(OBJS_DIR)
-	@echo "\n${RED}BraiiiiiiinnnzzzZ is cleaned${NC}"
+	@echo "\n${RED}\"Moar brainz!\" is cleaned${NC}"
 
 fclean: clean
 	@rm -f $(NAME)
