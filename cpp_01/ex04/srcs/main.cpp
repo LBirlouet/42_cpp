@@ -1,5 +1,6 @@
 #include <fstream>
 #include <iostream>
+#include <sstream>
 
 int main(int ac, char **av){
 
@@ -14,6 +15,11 @@ std::string filename;
 std::string newFilename;
 std::string toReplace;
 std::string replacement;
+
+std::string fileContent;
+std::string newfileContent;
+size_t  i = 0;
+size_t  j = 0;
 
 if (ac != 4)
     return 0;
@@ -32,23 +38,33 @@ else{
 }
 
 
+
+std::stringstream buffer;
+    
+buffer << myFile.rdbuf();
+fileContent = buffer.str();
+
+std::cout << "test" << fileContent << std::endl;
+
+while ((i = fileContent.find(toReplace, j)) != std::string::npos)
+{
+    newfileContent.append(fileContent, j, i - j);
+    newfileContent.append(replacement);
+    j = i + toReplace.length();
+}
+newfileContent.append(fileContent, j, fileContent.length() - j);
+
+// std::cout << "test" << fileContent << std::endl;
+
+
+
 newFilename = filename + ".replace";
 
 newFile.open(newFilename.c_str());
 
+newFile << newfileContent;
+
 
 myFile.close();
 newFile.close();
-// std::cout << test1 << test2 << test3 << std::endl;
-
-// test2.swap(test3);
-
-// std::cout << test1 << test2 << test3 << std::endl;
-
-
-// if (ac == 4){
-
-// }
-// else
-//     std::cout << "Bad arguments" << std::endl;
 }
