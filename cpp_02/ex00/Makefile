@@ -1,6 +1,7 @@
 NAME 		= 	My_First_Class_in_Orthodox_Canonical_Form
 OBJS_DIR	= 	objects
 SRCS 		=	srcs/main.cpp \
+				srcs/Fixed.cpp
 
 OBJS = $(SRCS:srcs/%.cpp=$(OBJS_DIR)/%.o)
 
