@@ -5,10 +5,11 @@ Zombie::Zombie(std::string myName){
 }
 
 Zombie::~Zombie(void){
+	std::cout<<this->myName<<": has been destructed"<<std::endl;
 }
 
 void	Zombie::announce(void){
-	std::cout<< this->myName << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout<<this->myName<<": BraiiiiiiinnnzzzZ..." <<std::endl;
 }
 
 void	Zombie::setZombieName(std::string name){

@@ -9,4 +9,5 @@ int	main(void){
 	Zombie *myZombie = newZombie("Heaper");
 	myZombie->announce();
 	randomChump("Stacker");
+	delete myZombie;
 }
