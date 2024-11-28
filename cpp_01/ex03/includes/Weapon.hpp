@@ -13,7 +13,7 @@ public:
 
 	void	setType(std::string wp_type);
 
-    std::string getType();
+    const std::string getType();
 
 private:
 

@@ -11,6 +11,6 @@ void Weapon::setType(std::string type){
 	this->wp_type = type;
 }
 
-std::string Weapon::getType(){
+const std::string Weapon::getType(){
 	return this->wp_type;
 }

@@ -8,6 +8,7 @@ Zombie::Zombie(void){
 }
 
 Zombie::~Zombie(void){
+	std::cout<<this->myName<<": has been destructed"<<std::endl;
 }
 
 void	Zombie::announce(void){
