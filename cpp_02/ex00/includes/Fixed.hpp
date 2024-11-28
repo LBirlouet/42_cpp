@@ -11,7 +11,7 @@ public:
     Fixed();
     Fixed(const Fixed& cp);
 	~Fixed();
-    Fixed &operator = (const Fixed& cp);
+    Fixed   &operator = (const Fixed &cp);
     int     getRawBits(void) const;
 	void    setRawBits(int const raw);
 
@@ -19,7 +19,7 @@ public:
 private:
 
     int fixedPointNb;
-    static const int fractionalBitsNb;
+    static const int fractionalBitsNb = 8;
 
 };
 
