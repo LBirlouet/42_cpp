@@ -9,8 +9,9 @@ class Fixed
 public:
 
     Fixed();
-    Fixed(const int i);
-    Fixed(const float i);
+    explicit Fixed(const int i);
+    explicit Fixed(const float i);
+    Fixed(const Fixed& cp);
 	~Fixed();
     Fixed   &operator = (const Fixed &cp);
     int     getRawBits(void) const;

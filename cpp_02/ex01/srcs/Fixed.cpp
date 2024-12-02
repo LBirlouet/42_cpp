@@ -1,6 +1,11 @@
 #include "../includes/Fixed.hpp"
 #include "iostream"
 
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
+    os << fixed.toFloat();
+    return os;
+}
+
 Fixed::Fixed(){
     std::cout<<"Default constructor called"<<std::endl;
     this->fixedValue = 0;
@@ -9,6 +14,11 @@ Fixed::Fixed(){
 Fixed::Fixed(const int i){
     std::cout<<"Int constructor called"<<std::endl;
     this->fixedValue = i << fractionalBitsValue;
+}
+
+Fixed::Fixed(const Fixed& cp){
+    std::cout<<"Copy constructor called"<<std::endl;
+    *this = cp;
 }
 
 Fixed::Fixed(const float i){
