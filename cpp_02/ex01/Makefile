@@ -1,4 +1,4 @@
-NAME 		= 	My_First_Class_in_Orthodox_Canonical_Form
+NAME 		= 	Towards_a_more_useful_fixed-point_number_class
 OBJS_DIR	= 	objects
 SRCS 		=	srcs/main.cpp \
 				srcs/Fixed.cpp
@@ -15,7 +15,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@c++ $(FLAGS) $(OBJS) -o $(NAME)
-	@echo "\n${GREEN}\"My First Class in Orthodox Canonical Form\" is compiled${NC}"
+	@echo "\n${GREEN}\"Towards a more useful fixed-point number class\" is compiled${NC}"
 
 $(OBJS_DIR)/%.o: srcs/%.cpp
 	@mkdir -p $(OBJS_DIR)
@@ -23,7 +23,7 @@ $(OBJS_DIR)/%.o: srcs/%.cpp
 
 clean:
 	@rm -rf $(OBJS_DIR)
-	@echo "\n${RED} \"My First Class in Orthodox Canonical Form\" is cleaned${NC}"
+	@echo "\n${RED}\"Towards a more useful fixed-point number class\" is cleaned${NC}"
 
 fclean: clean
 	@rm -f $(NAME)

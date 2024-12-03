@@ -23,7 +23,7 @@ $(OBJS_DIR)/%.o: srcs/%.cpp
 
 clean:
 	@rm -rf $(OBJS_DIR)
-	@echo "\n${RED} \"My First Class in Orthodox Canonical Form\" is cleaned${NC}"
+	@echo "\n${RED}\"My First Class in Orthodox Canonical Form\" is cleaned${NC}"
 
 fclean: clean
 	@rm -f $(NAME)
