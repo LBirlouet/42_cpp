@@ -13,7 +13,6 @@ public:
     explicit Fixed(const float i);
 	~Fixed();
 
-    friend std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 
     float   toFloat(void) const;
     int     toInt(void) const;
@@ -46,5 +45,7 @@ private:
     static const int fractionalBitsValue = 8;
 
 };
+
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 
 #endif
