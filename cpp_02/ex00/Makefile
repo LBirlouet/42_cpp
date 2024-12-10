@@ -5,7 +5,7 @@ SRCS 		=	srcs/main.cpp \
 
 OBJS = $(SRCS:srcs/%.cpp=$(OBJS_DIR)/%.o)
 
-FLAGS		 = -Wall -Werror -Wextra -std=c++98 #-Wpedantic
+FLAGS		 = -Wall -Werror -Wextra -std=c++98
 
 GREEN		=	\033[1;92m
 RED			=	\033[1;91m
