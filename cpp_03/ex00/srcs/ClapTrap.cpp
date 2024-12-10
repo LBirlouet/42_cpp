@@ -30,7 +30,7 @@ void ClapTrap::attack(const std::string& target){
 void ClapTrap::takeDamage(unsigned int amout){
     if (this->health > (int)amout){
         this->health = this->health - amout;
-        std::cout<<"AAAAAA ClapTrap "<< this->name <<" take " << amout << " of damage, he has now " << this->health << " health points"<<std::endl;
+        std::cout<<"ClapTrap "<< this->name <<" take " << amout << " of damage, he has now " << this->health << " health points"<<std::endl;
     }
     else if((this->health < (int)amout) && (this->health > 0)){
         this->health = this->health - amout;

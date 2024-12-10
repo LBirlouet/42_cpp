@@ -1,27 +1,20 @@
 #include "../includes/ClapTrap.hpp"
+#include "../includes/ScavTrap.hpp"
 
 int main(){
-    ClapTrap player("Nicolas");
+    ScavTrap player1("Cameron");
+    ScavTrap player2("Younes");
 
-    player.attack("Charlie");
-    player.beRepaired(15);
-    player.takeDamage(24);
-    player.beRepaired(2);
-    player.takeDamage(4);
-    player.beRepaired(10);
-    player.attack("Charlie");
+    player1.attack("Nicolas");
+    player2.attack("Nicolas");
 
-    std::cout << "*****************************************" << std::endl;
-    
-    ClapTrap player2("Victor");
+    player1.beRepaired(20);
+    player2.beRepaired(1);
 
-    for (int i = 0; i < 10; i++){
-        player2.attack("Julien");
-    }
-    player2.attack("Julien");
-    player2.beRepaired(5);
+    player1.takeDamage(119);
+    player2.takeDamage(99);
 
-    std::cout << "*****************************************" << std::endl;
+    player1.guardGate();
+    player2.guardGate();
 
-    
 }

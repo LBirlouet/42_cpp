@@ -5,8 +5,8 @@ ClapTrap::ClapTrap(std::string Name){
     std::cout<<"ClapTrap constructor called for " << Name <<std::endl;
     this->name = Name;
     this->health = 100;
-    this->energyPoint = 50;
-    this->attackDamage = 20;
+    this->energyPoint = 100;
+    this->attackDamage = 30;
 }
 
 // destructor
