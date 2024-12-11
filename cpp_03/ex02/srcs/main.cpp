@@ -11,7 +11,6 @@ int main(){
     player2.attack("Victor");
     player3.attack("Victor");
 
-
     player1.beRepaired(20);
     player2.beRepaired(1);
     player3.beRepaired(100);
