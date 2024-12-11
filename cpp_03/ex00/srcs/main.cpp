@@ -2,6 +2,7 @@
 
 int main(){
     ClapTrap player("Nicolas");
+    ClapTrap player2("Victor");
 
     player.attack("Charlie");
     player.beRepaired(15);
@@ -13,7 +14,6 @@ int main(){
 
     std::cout << "*****************************************" << std::endl;
     
-    ClapTrap player2("Victor");
 
     for (int i = 0; i < 10; i++){
         player2.attack("Julien");

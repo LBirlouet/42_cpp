@@ -32,8 +32,9 @@ void ClapTrap::takeDamage(unsigned int amout){
         this->health = this->health - amout;
         std::cout<<"ClapTrap "<< this->name <<" take " << amout << " of damage, he has now " << this->health << " health points"<<std::endl;
     }
-    else if((this->health < (int)amout) && (this->health > 0)){
+    else if((this->health <= (int)amout) && (this->health > 0)){
         this->health = this->health - amout;
+
         std::cout<<"ClapTrap "<< this->name <<" take " << amout << " of damage, now, he's dead"<<std::endl;
     }
     else

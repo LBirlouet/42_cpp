@@ -3,7 +3,7 @@
 
 int main(){
     ScavTrap player1("Cameron");
-    ScavTrap player2("Younes");
+    ClapTrap player2("Younes");
 
     player1.attack("Nicolas");
     player2.attack("Nicolas");
@@ -15,6 +15,5 @@ int main(){
     player2.takeDamage(99);
 
     player1.guardGate();
-    player2.guardGate();
 
 }

@@ -12,7 +12,9 @@ public:
     FragTrap(std::string Name);
     ~FragTrap();
 
+    void    attack(const std::string& target);
     void    highFivesGuys(void);
+
 };
 
 #endif
