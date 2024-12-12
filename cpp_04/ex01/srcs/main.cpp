@@ -7,7 +7,7 @@
 
 int	main()
 {
-    Animal* animals[6];
+    Animal *animals[6];
 
     for (int i = 0; i < 3; i++) {
         animals[i] = new Dog();
