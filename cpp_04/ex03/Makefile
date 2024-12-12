@@ -1,13 +1,6 @@
-NAME 		= 	Abstract
+NAME 		= 	Materia
 OBJS_DIR	= 	objects
 SRCS 		=	srcs/main.cpp \
-				srcs/Animal.cpp \
-				srcs/Dog.cpp \
-				srcs/Cat.cpp \
-				srcs/WrongAnimal.cpp \
-				srcs/WrongCat.cpp \
-				srcs/Brain.cpp
-
 
 OBJS = $(SRCS:srcs/%.cpp=$(OBJS_DIR)/%.o)
 
@@ -21,7 +14,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@c++ $(FLAGS) $(OBJS) -o $(NAME)
-	@echo "\n${GREEN}\"Abstract\" is compiled${NC}"
+	@echo "\n${GREEN}\"Materia\" is compiled${NC}"
 
 $(OBJS_DIR)/%.o: srcs/%.cpp
 	@mkdir -p $(OBJS_DIR)
@@ -29,7 +22,7 @@ $(OBJS_DIR)/%.o: srcs/%.cpp
 
 clean:
 	@rm -rf $(OBJS_DIR)
-	@echo "\n${RED}\"Abstract\" is cleaned${NC}"
+	@echo "\n${RED}\"Materia\" is cleaned${NC}"
 
 fclean: clean
 	@rm -f $(NAME)
