@@ -22,7 +22,7 @@ int	main()
 	delete j;
 	delete meta;
 
-	std::cout << "\n******************************" << std ::endl;
+	std::cout << "\n******************************\n" << std ::endl;
 
 	const WrongAnimal	*k = new WrongAnimal();
 	const WrongCat		*l = new WrongCat();

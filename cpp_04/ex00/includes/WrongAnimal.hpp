@@ -10,7 +10,9 @@ public:
 
     WrongAnimal();
     WrongAnimal(std::string _type);
-	virtual ~WrongAnimal();
+    WrongAnimal(const WrongAnimal& cp);
+    WrongAnimal   &operator = (const WrongAnimal &cp);
+    virtual ~WrongAnimal();
     void    setType(std::string _type);
     std::string    getType() const;
     virtual void    makeSound() const;

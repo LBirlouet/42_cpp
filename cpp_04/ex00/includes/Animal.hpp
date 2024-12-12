@@ -10,6 +10,8 @@ public:
 
     Animal();
     Animal(std::string _type);
+    Animal(const Animal& cp);
+    Animal   &operator = (const Animal &cp);
 	virtual ~Animal();
     void    setType(std::string _type);
     std::string    getType() const;
