@@ -4,11 +4,13 @@ SRCS 		=	srcs/main.cpp \
 				srcs/Animal.cpp \
 				srcs/Dog.cpp \
 				srcs/Cat.cpp \
+				srcs/WrongAnimal.cpp \
+				srcs/WrongCat.cpp
 
 
 OBJS = $(SRCS:srcs/%.cpp=$(OBJS_DIR)/%.o)
 
-FLAGS		 = -Wall -Werror -Wextra -std=c++98 #-Wpedantic
+FLAGS		 = -Wall -Werror -Wextra -std=c++98
 
 GREEN		=	\033[1;92m
 RED			=	\033[1;91m

@@ -9,13 +9,15 @@ class Animal
 public:
 
     Animal();
-    Animal(std::string Name);
-	~Animal();
-
+    Animal(std::string _type);
+	virtual ~Animal();
+    void    setType(std::string _type);
+    std::string    getType() const;
+    virtual void    makeSound() const;
 
 private:
 
-    std::string animal_type;
+    std::string type;
 
 };
 

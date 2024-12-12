@@ -9,9 +9,15 @@ class WrongAnimal
 public:
 
     WrongAnimal();
-    WrongAnimal(std::string Name);
-	~WrongAnimal();
+    WrongAnimal(std::string _type);
+	virtual ~WrongAnimal();
+    void    setType(std::string _type);
+    std::string    getType() const;
+    virtual void    makeSound() const;
 
+private:
+
+    std::string type;
 
 };
 

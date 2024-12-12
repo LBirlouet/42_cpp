@@ -21,4 +21,22 @@ int	main()
 	delete i;
 	delete j;
 	delete meta;
+
+	std::cout << "\n******************************" << std ::endl;
+
+	const WrongAnimal	*k = new WrongAnimal();
+	const WrongCat		*l = new WrongCat();
+	const WrongAnimal	*m = new WrongCat();
+
+	std::cout << k->getType() << " " << std::endl;
+	std::cout << l->getType() << " " << std::endl;
+	std::cout << m->getType() << " " << std::endl;
+
+	k->makeSound();
+	l->makeSound();
+	m->makeSound();
+
+	delete k;
+	delete l;
+	delete m;
 }

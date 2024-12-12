@@ -4,13 +4,14 @@
 #include "iostream"
 #include "Animal.hpp"
 
-class Dog
+class Dog : public Animal
 {
 
 public:
 
     Dog();
 	~Dog();
+    void    makeSound() const;
 };
 
 #endif

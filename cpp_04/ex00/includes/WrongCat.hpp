@@ -2,21 +2,16 @@
 #define WRONGCAT_HPP
 
 #include "iostream"
+#include "WrongAnimal.hpp"
 
-class WrongCat
+class WrongCat : public WrongAnimal
 {
 
 public:
 
     WrongCat();
-    WrongCat(std::string Name);
-	~WrongCat();
-
-
-private:
-
-    std::string wrong_cat_type;
-
+    ~WrongCat();
+    void    makeSound() const;
 };
 
 #endif
