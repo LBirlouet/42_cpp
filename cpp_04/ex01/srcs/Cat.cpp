@@ -10,14 +10,18 @@ Cat::Cat(){
 // copy constructor (Orthodox Canonical Form)
 Cat::Cat(const Cat& cp) : Animal(cp) {
     std::cout<<"[CAT] Copy constructor called"<<std::endl;
-	*this = cp;
+    this->brain = new Brain(*cp.brain);
+    setType(cp.getType());
 }
 
 // assignment operator (Orthodox Canonical Form)
 Cat &Cat::operator=(const Cat &cp){
     std::cout<<"[CAT] Copy assignment operator called"<<std::endl;
-    if (this != &cp)
-        setType(getType());
+    if (this != &cp){
+        setType(cp.getType());
+        delete this->brain;
+        this->brain = new Brain(*cp.brain);
+    }
     return *this;
 }
 
