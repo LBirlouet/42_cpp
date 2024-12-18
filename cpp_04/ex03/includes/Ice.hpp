@@ -3,7 +3,17 @@
 
 #include "iostream"
 
+class Ice
+{
 
+public:
+
+    Ice();
+    ~Ice();
+    Ice(const Ice& cp);
+    Ice   &operator = (const Ice &cp);
+
+};
 
 
 #endif

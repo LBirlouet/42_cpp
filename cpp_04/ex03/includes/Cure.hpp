@@ -3,6 +3,16 @@
 
 #include "iostream"
 
+class Cure
+{
 
+public:
+
+    Cure();
+    ~Cure();
+    Cure(const Cure& cp);
+    Cure   &operator = (const Cure &cp);
+
+};
 
 #endif
