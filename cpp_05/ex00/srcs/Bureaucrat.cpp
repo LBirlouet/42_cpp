@@ -3,13 +3,18 @@
 // default constructor (Orthodox Canonical Form)
 Bureaucrat::Bureaucrat(){
     std::cout<<"[Bureaucrat] default constructor called" <<std::endl;
+    this->grade = 150;
 }
 
-Bureaucrat::Bureaucrat(std::string Name){
+Bureaucrat::Bureaucrat(std::string Name, int Grade) : name(Name){
     std::cout<<"[Bureaucrat] constructor with argument called" <<std::endl;
-    this->name = Name;
-}
+    if (grade < 1)
+        throw GradeTooHighException();
+    if (grade > 150)
+        throw GradeTooLowException();
+    this->grade = Grade;
 
+}
 
 // copy constructor (Orthodox Canonical Form)
 Bureaucrat::Bureaucrat(const Bureaucrat& cp){
@@ -36,7 +41,7 @@ std::string Bureaucrat::getName(void)const {
     return this->name;
 }
 
-// set name
-void    Bureaucrat::setName(std::string Name){
-    this->name = Name;
+// get grade
+int Bureaucrat::getGrade(void)const {
+    return this->grade;
 }
