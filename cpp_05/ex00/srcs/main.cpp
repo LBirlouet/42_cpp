@@ -1,6 +1,5 @@
 #include "../includes/Bureaucrat.hpp"
 
-
 int main()
 {
 
@@ -8,6 +7,9 @@ int main()
 
 	Bureaucrat boss("boss", 1);
 	std::cout << boss << std::endl;
+
+	std::cout << "\n============ CHECKKKKKKKK ============\n" << std::endl;
+
 
 	Bureaucrat employee("employee", 75);
 	std::cout << employee << std::endl;
@@ -31,17 +33,17 @@ int main()
 
 	std::cout << "\n============= testing exceptions =============\n" << std::endl;
 	
-	try { Bureaucrat toohigh("toohigh", 0); }
-	catch(const std::exception& e) { std::cerr << e.what() << std::endl; }
+	try {Bureaucrat toohigh("toohigh", 0);}
+	catch(const std::exception& exep) {std::cerr << exep.what() << std::endl;}
 
-	try { Bureaucrat toolow("toolow", 160); }
-	catch(const std::exception& e) { std::cerr << e.what() << std::endl; }
+	try {Bureaucrat toolow("toolow", 160);}
+	catch(const std::exception& exep) {std::cerr << exep.what() << std::endl;}
 
-	try { boss.upGrade(); }
-	catch(const std::exception& e) { std::cerr << e.what() << std::endl; }
+	try {boss.upGrade();}
+	catch(const std::exception& exep) {std::cerr << exep.what() << std::endl;}
 		
-	try { intern.downGrade(); }
-	catch(const std::exception& e) { std::cerr << e.what() << std::endl; }
+	try {intern.downGrade();}
+	catch(const std::exception& exep) {std::cerr << exep.what() << std::endl;}
 	
 	std::cout << "\n==============================================\n" << std::endl;
 }
