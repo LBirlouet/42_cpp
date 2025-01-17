@@ -1,7 +1,7 @@
 #include "../includes/Form.hpp"
 
 // default constructor (Orthodox Canonical Form)
-Form::Form() : gradetosign(150), gradetoexec(150){
+Form::Form() : name(""), signeed(0), gradetosign(150), gradetoexec(150){
     std::cout<<"[Form] default constructor called" <<std::endl;
 }
 
