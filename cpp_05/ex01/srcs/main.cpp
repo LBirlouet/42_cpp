@@ -43,31 +43,31 @@ int main()
 	std::cout << "\n============= testing exceptions =============\n" << std::endl;
 	
 	try { Bureaucrat toohigh("toohigh", 0); }
-	catch(const std::exception& e) { std::cerr << e.what() << std::endl; }
+	catch(const std::exception& exep) { std::cerr << exep.what() << std::endl; }
 
 	try { Bureaucrat toolow("toolow", 160); }
-	catch(const std::exception& e) { std::cerr << e.what() << std::endl; }
+	catch(const std::exception& exep) { std::cerr << exep.what() << std::endl; }
 
 	try { boss.upGrade(); }
-	catch(const std::exception& e) { std::cerr << e.what() << std::endl; }
+	catch(const std::exception& exep) { std::cerr << exep.what() << std::endl; }
 		
 	try { intern.downGrade(); }
-	catch(const std::exception& e) { std::cerr << e.what() << std::endl; }
+	catch(const std::exception& exep) { std::cerr << exep.what() << std::endl; }
 
 	try { employee.signForm(form2); }
-	catch(const std::exception& e) { std::cerr << e.what() << std::endl; }
+	catch(const std::exception& exep) { std::cerr << exep.what() << std::endl; }
 
 	try { form2.beSigned(employee); }
-	catch(const std::exception& e) { std::cerr << e.what() << std::endl; }
+	catch(const std::exception& exep) { std::cerr << exep.what() << std::endl; }
 
 	try { form1.beSigned(employee); }
-	catch(const std::exception& e) { std::cerr << e.what() << std::endl; }
+	catch(const std::exception& exep) { std::cerr << exep.what() << std::endl; }
 
 	try { Form form3("form3", 160, 160); }
-	catch(const std::exception& e) { std::cerr << e.what() << std::endl; }
+	catch(const std::exception& exep) { std::cerr << exep.what() << std::endl; }
 
 	try { Form form4("form4", 0, 0); }
-	catch(const std::exception& e) { std::cerr << e.what() << std::endl; }
+	catch(const std::exception& exep) { std::cerr << exep.what() << std::endl; }
 	
 	std::cout << "\n==============================================\n" << std::endl;
 }

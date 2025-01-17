@@ -78,6 +78,6 @@ const char* Form::FormAlreadySignedException::what() const throw() {
 
 // overload for output
 std::ostream& operator<<(std::ostream& os, const Form& form) {
-    os << form.getName() << " signed  grade " << std::boolalpha << form.getSigned() << ", has the grade to sign : "<< form.getGradeToSign() << ", has the grade to exec : " << form.getGradeToExec() << std::endl;
+    os << "[" << form.getName() << "] [signed -> " << std::boolalpha << form.getSigned() << "] [grade to sign : "<< form.getGradeToSign() << "] [grade to exec : " << form.getGradeToExec() << "]" << std::endl;
     return os;
 }
