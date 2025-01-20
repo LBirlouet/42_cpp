@@ -5,6 +5,7 @@ Form::Form() : name(""), signeed(0), gradetosign(150), gradetoexec(150){
     std::cout<<"[Form] default constructor called" <<std::endl;
 }
 
+// constructor with arg
 Form::Form(std::string Name, int GradeSign, int GradeExec) : name(Name), signeed(0), gradetosign(GradeSign), gradetoexec(GradeExec)
 {
     if (GradeExec > 150 || GradeSign > 150)
