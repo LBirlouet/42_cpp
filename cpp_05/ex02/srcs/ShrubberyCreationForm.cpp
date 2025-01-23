@@ -1,5 +1,6 @@
 #include "../includes/ShrubberyCreationForm.hpp"
 #include "fstream"
+#include "string.h"
 
 // default constructor (Orthodox Canonical Form)
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("shrubberycreation", "default target", 145, 137){
@@ -32,7 +33,7 @@ void    ShrubberyCreationForm::execute(const Bureaucrat &caller) const{
         throw AFormNotSignedException();
     if (this->getGradeToSign() > 145 || this->getGradeToExec() > 137)
         throw GradeTooLowException();
-    std::ofstream new_file(this->getTarget() + ("_Shrubbery"));
+    std::ofstream new_file((this->getTarget() + "_Shrubbery").c_str());
     if (!new_file.is_open())
         throw std::ofstream::failure(strerror(errno));
 

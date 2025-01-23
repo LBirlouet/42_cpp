@@ -38,5 +38,4 @@ void    RobotomyRequestForm::execute(const Bureaucrat &caller) const{
         std::cout << this->getTarget() << " has been robotomized" << std::endl;
     else
         std::cout << this->getTarget() << " has failed to be robotomized" << std::endl;
-
 }
