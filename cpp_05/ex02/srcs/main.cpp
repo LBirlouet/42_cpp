@@ -10,7 +10,7 @@ int main()
 	std::cout << "\n============= Presidential Pardon ============\n" << std::endl;
 
 	Bureaucrat bureaucrat1("bureaucrat1", 1);
-	PresidentialPardonForm pardonform("Yoshi");
+	PresidentialPardonForm pardonform("Juju");
 	std::cout << pardonform << std::endl;
 	bureaucrat1.signForm(pardonform);
 	bureaucrat1.executeForm(pardonform);
@@ -18,7 +18,7 @@ int main()
 	std::cout << "\n=============== Robotomy Request =============\n" << std::endl;
 
 	Bureaucrat bureaucrat2("bureaucrat2", 1);
-	RobotomyRequestForm robotomyrequest("Bob");
+	RobotomyRequestForm robotomyrequest("Victor");
 	std::cout << robotomyrequest << std::endl;
 	bureaucrat2.signForm(robotomyrequest);
 	bureaucrat2.executeForm(robotomyrequest);

@@ -6,6 +6,7 @@ Bureaucrat::Bureaucrat(){
     this->grade = 150;
 }
 
+// constructor with arg
 Bureaucrat::Bureaucrat(std::string Name, int Grade) : name(Name){
     std::cout<<"[Bureaucrat] constructor with argument called" <<std::endl;
     if (Grade < 1)
@@ -74,6 +75,6 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 
 // overload for output
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat) {
-    os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
+    os << bureaucrat.getName() << ", bureaucrat grade : " << bureaucrat.getGrade();
     return os;
 }
