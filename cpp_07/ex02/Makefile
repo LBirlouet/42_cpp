@@ -1,7 +1,6 @@
 NAME 		= 	 IdentifyRealType
 OBJS_DIR	= 	objects
 SRCS 		=	srcs/main.cpp \
-				srcs/Base.cpp
 
 
 OBJS = $(SRCS:srcs/%.cpp=$(OBJS_DIR)/%.o)
