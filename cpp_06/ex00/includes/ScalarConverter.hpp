@@ -22,7 +22,7 @@ public:
 
 private:
 
-     std::string    str;
+    std::string    str;
 
 };
 
