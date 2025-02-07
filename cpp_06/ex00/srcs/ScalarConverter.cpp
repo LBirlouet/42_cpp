@@ -55,7 +55,7 @@ void ScalarConverter::conv(){
     const float param_float = convFloat();
     const double param_double = convDouble();
 
-    if (param_char < CHAR_MIN || param_char > CHAR_MAX || param_float != param_float)
+    if (param_float < CHAR_MIN || param_float > CHAR_MAX || param_float != param_float)
         std::cout << "char: impossible" << std::endl;
     else if (isprint(param_char))
         std::cout << "char: " << param_char << std::endl;
