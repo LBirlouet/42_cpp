@@ -1,4 +1,4 @@
-NAME 		= 	 IdentifyRealType
+NAME 		= 	Array
 OBJS_DIR	= 	objects
 SRCS 		=	srcs/main.cpp \
 
@@ -15,7 +15,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@c++ $(FLAGS) $(OBJS) -o $(NAME)
-	@echo "\n${GREEN}\"IdentifyRealType\" is compiled${NC}"
+	@echo "\n${GREEN}\"Array\" is compiled${NC}"
 
 $(OBJS_DIR)/%.o: srcs/%.cpp
 	@mkdir -p $(OBJS_DIR)
@@ -23,7 +23,7 @@ $(OBJS_DIR)/%.o: srcs/%.cpp
 
 clean:
 	@rm -rf $(OBJS_DIR)
-	@echo "\n${RED}\"IdentifyRealType\" is cleaned${NC}"
+	@echo "\n${RED}\"Array\" is cleaned${NC}"
 
 fclean: clean
 	@rm -f $(NAME)
