@@ -49,11 +49,13 @@ double ScalarConverter::convDouble(){
 }
 
 // converter
-void ScalarConverter::conv(){
-    const char param_char = convChar();
-    const int param_int = convInt();
-    const float param_float = convFloat();
-    const double param_double = convDouble();
+void ScalarConverter::conv(std::string _str){
+    ScalarConverter converter;
+    converter.str = _str;
+    const char param_char = converter.convChar();
+    const int param_int = converter.convInt();
+    const float param_float = converter.convFloat();
+    const double param_double = converter.convDouble();
 
     if (param_float < CHAR_MIN || param_float > CHAR_MAX || param_float != param_float)
         std::cout << "char: impossible" << std::endl;
