@@ -17,22 +17,26 @@ Base* generate() {
 
 // identify object pointed by p
 void identify(Base* p) {
-    if (dynamic_cast<A*>(p)){
+    if (dynamic_cast<A*>(p))
         std::cout << "A" << std::endl;
-    } else if (dynamic_cast<B*>(p)){
+    else if (dynamic_cast<B*>(p))
         std::cout << "B" << std::endl;
-    } else if (dynamic_cast<C*>(p)){
+    else if (dynamic_cast<C*>(p))
         std::cout << "C" << std::endl;
-    }
+    else
+        std::cout << "Unknown type" << std::endl;
 }
 
 // identify object referenced by p
 void identify(Base& p) {
-    if (dynamic_cast<A*>(&p)){
-        std::cout << "A" << std::endl;
-    } else if (dynamic_cast<B*>(&p)){
-        std::cout << "B" << std::endl;
-    } else if (dynamic_cast<C*>(&p)){
-        std::cout << "C" << std::endl;
+    try {
+        if (dynamic_cast<A*>(&p))
+            std::cout << "A" << std::endl;
+        else if (dynamic_cast<B*>(&p))
+            std::cout << "B" << std::endl;
+        else if (dynamic_cast<C*>(&p))
+            std::cout << "C" << std::endl;
+    } catch (...){
+        std::cout << "Unknown type" << std::endl;
     }
 }
