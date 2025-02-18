@@ -15,7 +15,7 @@ int main() {
         std::cout << "\033[1;31mError: The pointers are not equal!\033[0m" << std::endl;
     }
 
-    std::cout << "Address as uintptr_t (Serialized): " << raw << std::endl;
+    std::cout << "Address as uintptr_t (Serialized):   " << raw << std::endl;
     std::cout << "Address as uintptr_t (Deserialized): " << reinterpret_cast<uintptr_t>(deserializedData) << std::endl;
     delete data;
 }

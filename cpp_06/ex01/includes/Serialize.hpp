@@ -7,7 +7,8 @@
 
 class Serializer{
 
-public:  
+public: 
+
     struct Data{
         std::string name;
         int i;
@@ -19,6 +20,13 @@ public:
     static uintptr_t serialize(Data* ptr);
 
     static Data* deserialize(uintptr_t raw);
+
+private:
+
+    Serializer();
+    Serializer(const Serializer &cp);
+    Serializer& operator=(const Serializer& cp);
+    ~Serializer();
 };
 
 #endif

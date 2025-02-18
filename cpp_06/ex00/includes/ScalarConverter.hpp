@@ -9,19 +9,20 @@ class ScalarConverter{
 
 public:
 
+    static void    conv(std::string _str);
+
+private:
+
     ScalarConverter();
     ScalarConverter(const std::string& param);
     ScalarConverter(const ScalarConverter& cp);
     ScalarConverter& operator=(const ScalarConverter& cp);
     ~ScalarConverter();
 
-    void    conv();
     char    convChar();
     int     convInt();
     float   convFloat();
     double  convDouble();
-
-private:
 
     std::string    str;
 
