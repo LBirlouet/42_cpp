@@ -1,7 +1,6 @@
 NAME 		= 	MutantStack
 OBJS_DIR	= 	objects
 SRCS 		=	srcs/main.cpp \
-				srcs/Span.cpp
 
 
 OBJS = $(SRCS:srcs/%.cpp=$(OBJS_DIR)/%.o)

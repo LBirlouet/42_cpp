@@ -1,6 +1,7 @@
 #include "../includes/MutantStack.hpp"
 
-int main(){
+int main()
+{
     /*---------SUBJECT MAIN---------*/
     std::cout << std::endl << "----- Subject Test -----" << std::endl;
     MutantStack<int> mstack;
@@ -25,6 +26,8 @@ int main(){
     }
     std::stack<int> s(mstack);
 
+    /*---------PERSONNAL MAIN---------*/
+    std::cout << std::endl << "----- Personnal Test -----" << std::endl;
 
 
 
