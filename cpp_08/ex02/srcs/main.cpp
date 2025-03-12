@@ -52,6 +52,4 @@ int main()
         std::cout << *lit << " ";
     std::cout << std::endl;
 
-
-
 }
