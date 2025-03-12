@@ -32,4 +32,10 @@ int main(){
     } catch (const std::exception& e){
         std::cerr << "Exception    : " << e.what() << std::endl;
     }
+    std::cout << std::endl << "----- Add Range Test -----" << std::endl;
+    Span rangeSpan(10);
+    int arr[] = {6, 7, 8, 9, 10};
+    std::vector<int> values(arr, arr + 5);
+    rangeSpan.addRange(values.begin(), values.end());
+    rangeSpan.printNumbers();
 }

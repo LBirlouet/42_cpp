@@ -4,6 +4,7 @@
 #include "stack"
 #include "iterator"
 #include "iostream"
+#include "list"
 
 // Définition de la classe MutantStack
 template <typename T>

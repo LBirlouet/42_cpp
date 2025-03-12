@@ -28,6 +28,29 @@ int main()
 
     /*---------PERSONNAL MAIN---------*/
     std::cout << std::endl << "----- Personnal Test -----" << std::endl;
+    MutantStack<int>::reverse_iterator rit = mstack.rbegin();
+    MutantStack<int>::reverse_iterator rite = mstack.rend();
+    std::cout << "Reverse iteration: ";
+    while (rit != rite) {
+        std::cout << *rit << " ";
+        ++rit;
+    }
+    std::cout << std::endl;
+
+    std::cout << std::endl << "----- List Comparison Test -----" << std::endl;
+    std::list<int> lst;
+    lst.push_back(5);
+    lst.push_back(17);
+    lst.pop_back();
+    lst.push_back(3);
+    lst.push_back(5);
+    lst.push_back(737);
+    lst.push_back(0);
+
+    std::cout << "List contents: ";
+    for (std::list<int>::iterator lit = lst.begin(); lit != lst.end(); ++lit)
+        std::cout << *lit << " ";
+    std::cout << std::endl;
 
 
 

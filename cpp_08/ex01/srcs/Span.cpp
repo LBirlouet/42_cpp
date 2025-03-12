@@ -37,6 +37,13 @@ void Span::addNumber(int number){
     numbers.push_back(number);
 }
 
+// add  range to the Span
+void Span::addRange(std::vector<int>::iterator begin, std::vector<int>::iterator end) {
+    if (std::distance(begin, end) + numbers.size() > maxSize)
+        throw std::overflow_error("Cannot add numbers: Span would exceed max size.");
+    numbers.insert(numbers.end(), begin, end);
+}
+
 // find the minimum difference
 int Span::shortestSpan() const{
     if (numbers.size() < 2)
