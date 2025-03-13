@@ -115,7 +115,7 @@ void 	BitcoinExchange::compareData(const std::string &filename){
             std::cerr << "Error" << std::endl;
             return;
         }
-        std::string date = line.substr(0, 10); // Extraire la date de la ligne
+        std::string date = line.substr(0, 10);
         std::map<std::string, double>::iterator it = dateValues.lower_bound(date);
         if (it == dateValues.end()){
             if (dateValues.empty()){
