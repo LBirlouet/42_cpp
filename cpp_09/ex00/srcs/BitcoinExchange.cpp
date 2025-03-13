@@ -39,7 +39,7 @@ BitcoinExchange::BitcoinExchange(const std::string &filename){
         date = line.substr(0, line.find(","));
         valueStr = line.substr(line.find(",") + 1, line.length());
         std::istringstream iss(valueStr);
-        if (!(iss >> value)) {
+        if (!(iss >> value)){
             std::cerr << "Error: invalid exchange rate format in \"data.csv\"" << std::endl;
             exit(1);
         }
@@ -108,8 +108,7 @@ void 	BitcoinExchange::compareData(const std::string &filename){
     }
    while (std::getline(file, line)){
         if (!checkString(line))
-            continue;
-        
+            continue;        
         std::istringstream val(line.substr(13, line.length()));
         if (!(val >> value)){
             std::cerr << "Error" << std::endl;
