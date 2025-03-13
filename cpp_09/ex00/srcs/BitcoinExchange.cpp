@@ -48,8 +48,53 @@ BitcoinExchange::BitcoinExchange(const std::string &filename){
     std::cout<<"[BitcoinExchange] constructor called" <<std::endl;
 }
 
+bool checkString(std::string str){
+    std::string date = str.substr(0, 10);
+    int year, month, day;
+    char dash1, dash2;
+    double value;
+    std::istringstream iss(date);
+
+    if (date.length() != 10 || date[4] != '-' || date[7] != '-' || str[10] != ' ' || str[11] != '|' || str[12] != ' ' || str.length() < 13){
+        std::cerr << "Error: bad input => " << str << std::endl;
+        return false;
+    }
+    if (str[13] == '-'){
+        std::cerr << "Error: not a positive number." << std::endl;
+        return false; 
+    }
+    if (!(iss >> year >> dash1 >> month >> dash2 >> day) || dash1 != '-' || dash2 != '-'){
+        std::cerr << "Error: bad input => " << str << std::endl;
+        return false;
+    }
+    if (year < 1900 || month < 1 || month > 12 || day < 1){
+        std::cerr << "Error: bad input => " << str << std::endl;
+        return false;
+    }
+    int daysInMonth[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+    if (month == 2 && ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))){
+        std::cerr << "Error: bad input => " << str << std::endl;
+        daysInMonth[1] = 29;
+    }
+    if (day > daysInMonth[month - 1]){
+        std::cerr << "Error: bad input => " << str << std::endl;
+        return false;
+    }
+    std::istringstream val(str.substr(13, str.length()));
+    if (!(val >> value)) {
+        std::cerr << "Error: bad input => " << str << std::endl;
+        return false;
+    }
+    if (value > INT_MAX){
+        std::cerr << "Error: too large a number." << std::endl;
+        return false;        
+    }
+    return true;
+}
+
 void 	BitcoinExchange::compareData(const std::string &filename){
     std::ifstream file(filename.c_str());
+    double value;
 
     if (!file){
         std::cerr << "Error: bad file in input" << std::endl;
@@ -62,8 +107,19 @@ void 	BitcoinExchange::compareData(const std::string &filename){
         return;
     }
    while (std::getline(file, line)){
-
 // compare data and print the result
+        if (!checkString(line))
+            continue;
+        
+        std::istringstream val(line.substr(13, line.length()));
+        if (!(val >> value)) {
+            std::cerr << "Error" << std::endl;
+            return;
+        }
+        // dateValues.find(line.substr(0,12));
+        
+
+        std::cout << line.substr(0, 10) << " => " << line.substr(13, line.length()) << std::endl;
 
     }
     
