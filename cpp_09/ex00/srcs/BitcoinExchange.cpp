@@ -107,22 +107,32 @@ void 	BitcoinExchange::compareData(const std::string &filename){
         return;
     }
    while (std::getline(file, line)){
-// compare data and print the result
         if (!checkString(line))
             continue;
         
         std::istringstream val(line.substr(13, line.length()));
-        if (!(val >> value)) {
+        if (!(val >> value)){
             std::cerr << "Error" << std::endl;
             return;
         }
-        // dateValues.find(line.substr(0,12));
-        
-
-        std::cout << line.substr(0, 10) << " => " << line.substr(13, line.length()) << std::endl;
-
-    }
-    
+        std::string date = line.substr(0, 10); // Extraire la date de la ligne
+        std::map<std::string, double>::iterator it = dateValues.lower_bound(date);
+        if (it == dateValues.end()){
+            if (dateValues.empty()){
+                std::cerr << "Error: no available exchange rate data." << std::endl;
+                continue;
+            }
+            --it;
+        }
+        else if (it->first != date){
+            if (it == dateValues.begin()){
+                std::cerr << "Error: no previous exchange rate available for " << date << std::endl;
+                continue;
+            }
+            --it;
+        }
+        std::cout << date << " => " << value << " = " << (value * it->second) << std::endl;
+    }    
 }
 
 // default destructor (Orthodox Canonical Form)
