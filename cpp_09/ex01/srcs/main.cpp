@@ -7,4 +7,8 @@ int main(int ac, char **av){
     }
 
     RPN calculate;
+    if (!calculate.checkArg(av[1])){
+        std::cerr << "Error: invalid arguments" << std::endl;
+        return 1;        
+    }
 }

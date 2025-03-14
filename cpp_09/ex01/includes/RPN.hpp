@@ -2,6 +2,8 @@
 #define RPN_HPP
 
 #include "iostream"
+#include "string"
+#include "stack"
 
 class RPN{
 
@@ -11,13 +13,13 @@ public:
     RPN& operator=(const RPN &cp);
     ~RPN();
 
-    void checkArg(std::string str);
+    bool checkArg(const std::string str);
 
 
 
 private:
 
-
+    std::stack<double> nb;
 
 
 };
