@@ -14,8 +14,7 @@ public:
     ~RPN();
 
     bool checkArg(const std::string str);
-
-
+    void doOperation(const std::string str);
 
 private:
 

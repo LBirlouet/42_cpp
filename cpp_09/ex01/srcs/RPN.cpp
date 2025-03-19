@@ -43,3 +43,50 @@ bool RPN::checkArg(const std::string str){
     }
     return (countNumbers == countOperators + 1);
 }
+
+void RPN::doOperation(const std::string str){
+	for (size_t i = 0; i < str.size(); i++){	
+		char c = str[i];
+		if (c == ' ')
+			continue;
+		else if (isdigit(c)){
+			int number = c - '0';
+			nb.push(number);
+		}
+		else if (c == '+' && nb.size() >= 2){
+			double b = nb.top();
+			nb.pop();
+			double a = nb.top();
+			nb.pop();
+			nb.push(a + b);
+		}
+		else if (c == '-' && nb.size() >= 2){
+			double b = nb.top();
+			nb.pop();
+			double a = nb.top();
+			nb.pop();
+			nb.push(a - b);
+		}
+		else if (c == '*' && nb.size() >= 2){
+			double b = nb.top();
+			nb.pop();
+			double a = nb.top();
+			nb.pop();
+			nb.push(a * b);
+		}
+		else if (c == '/' && nb.size() >= 2){
+			double b = nb.top();
+			nb.pop();
+			double a = nb.top();
+			nb.pop();
+			nb.push(a / b);
+		}
+	}
+	if (nb.size() == 1){
+		double result = nb.top();
+		nb.pop();
+		std::cout << "Result: " << result << std::endl;
+	}
+    else
+		std::cout << "Error : number not less than 10" << std::endl;
+}
