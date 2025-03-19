@@ -1,18 +1,22 @@
 #include "../includes/RPN.hpp"
 
 RPN::RPN(void){
+    std::cout<<"[RPN] constructor called" <<std::endl;
 }
 
 RPN::RPN(const RPN& from){
+    std::cout << "[RPN] Copy constructor called" << std::endl;
     *this = from;
 }
 
 RPN& RPN::operator=(const RPN& from){
 	(void)from;
+    std::cout << "[RPN] Copy assignment operator called" << std::endl;
     return *this;
 }
 
 RPN::~RPN(void){
+    std::cout<<"[RPN] default destructor called" <<std::endl;
 }
 
 bool RPN::checkArg(const std::string str){

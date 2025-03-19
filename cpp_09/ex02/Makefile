@@ -1,7 +1,7 @@
 NAME 		= 	PmergeMe
 OBJS_DIR	= 	objects
 SRCS 		=	srcs/main.cpp \
-				srcs/RPN.cpp
+				srcs/PmergeMe.cpp
 
 
 OBJS = $(SRCS:srcs/%.cpp=$(OBJS_DIR)/%.o)
